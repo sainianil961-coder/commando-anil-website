@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Review Moderation | Owner Access Only</title>
+<meta name="description" content="Owner review moderation.">
+<meta name="robots" content="noindex, nofollow">
+<link rel="icon" type="image/svg+xml" href="../assets/icons/favicon.svg">
+<link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body>
+<a class="skip" href="#main">मुख्य सामग्री पर जाएं</a>
+<header class="site-header"><div class="header-in">
+<a class="brand" href="../"><span class="brand-mark">CA</span><span><b>COMMANDO ANIL</b><small>OWNER MODERATION</small></span></a>
+</div></header>
+<main id="main"><section style="padding-top:1.5rem"><div class="wrap" style="max-width:860px">
+<h1>Review Moderation</h1>
+<p class="meta">Ye page publicly link nahi hai — Firebase Authentication + admin allowlist se protected। Firestore rules final authority hain।</p>
+<div id="adminNotice"></div>
+<div class="card" id="adminLogin">
+<h2>Owner Login</h2>
+<form class="form" id="loginForm" novalidate>
+<label for="adminEmail">Email</label>
+<input id="adminEmail" type="email" autocomplete="username" required>
+<label for="adminPass">Password</label>
+<input id="adminPass" type="password" autocomplete="current-password" required>
+<button class="btn btn-primary" type="submit" style="width:100%;margin-top:.8rem">Login</button>
+</form>
+</div>
+<div id="adminDash" hidden>
+<div class="tabs" role="tablist" aria-label="Review status">
+<button class="tab-btn active" type="button" data-tab="pending">Pending</button>
+<button class="tab-btn" type="button" data-tab="approved">Approved</button>
+<button class="tab-btn" type="button" data-tab="rejected">Rejected</button>
+<button class="tab-btn" type="button" id="logoutBtn">Logout</button>
+</div>
+<div class="grid" id="adminList"></div>
+</div>
+</div></section></main>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js" defer></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js" defer></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore-compat.js" defer></script>
+<script src="../assets/js/firebase-config.js" defer></script>
+<script src="../assets/js/admin.js" defer></script>
+</body></html>

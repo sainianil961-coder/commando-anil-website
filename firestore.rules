@@ -1,0 +1,34 @@
+rules_version = '2';
+// Commando Anil — student_reviews security rules.
+// Public: read ONLY approved; create ONLY valid pending. Admins via admins/{uid}.
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    function isAdmin() {
+      return request.auth != null
+        && exists(/databases/$(database)/documents/admins/$(request.auth.uid));
+    }
+
+    function validReview() {
+      let d = request.resource.data;
+      return d.keys().hasOnly(['name', 'rating', 'reviewText', 'createdAt', 'status'])
+        && d.status == 'pending'
+        && d.name is string && d.name.size() >= 2 && d.name.size() <= 50
+        && d.rating is int && d.rating >= 1 && d.rating <= 5
+        && d.reviewText is string && d.reviewText.size() >= 5 && d.reviewText.size() <= 1000
+        && d.createdAt == request.time;
+    }
+
+    match /student_reviews/{reviewId} {
+      allow read: if resource.data.status == 'approved' || isAdmin();
+      allow create: if validReview();
+      allow update, delete: if isAdmin();
+    }
+
+    // Admin allowlist: create docs manually in Firebase Console after admin signup.
+    match /admins/{uid} {
+      allow read: if request.auth != null && request.auth.uid == uid;
+      allow write: if false;
+    }
+  }
+}

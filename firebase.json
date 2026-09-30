@@ -1,0 +1,1 @@
+{"hosting":{"public":".","ignore":["firebase.json","**/.*","**/node_modules/**","patch_*.py","rescan.py"],"cleanUrls":true,"trailingSlash":true},"firestore":{"rules":"firestore.rules"}}
