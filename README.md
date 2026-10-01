@@ -58,9 +58,20 @@ OG share image: `assets/images/og-default.webp` (1200×630) बनाकर र�
 ```
 Fake/guessed video URL कभी न बनाएं — सिर्फ real video ID।
 
-## 8. Study Resource जोड़ना
+## 8. Study Resource / MCQ jodna
 
-`studyResources` array में `{title, cat, desc, action, href}` जोड़ें। Fake PDF link न दें।
+`studyResources` array me `{title, cat, desc, action, href}` jodein. Fake PDF link n dein.
+
+**MCQ (subject-wise) jodna:** har subject ka file `assets/js/mcq/` me hai —
+`physics.js`, `chemistry.js`, `biology.js`, `maths.js`, `reasoning.js`, `railway-gk.js`.
+Naya question jodne ke liye us subject ke `questions` array me object add karein:
+```js
+{ q: "सवाल?", options: ["A","B","C","D"], answer: 0, exp: "छोटा explanation" }
+```
+- `options` me **exactly 4** hone chahiye, `answer` 0 se 3 ke beech (0 = pehla option)।
+- Naya subject banana ho to nayi file bana ke `window.mcqData.push({...})` karein aur
+  `study-resources/index.html` me uska `<script>` tag add karein।
+- Quiz ka engine `assets/js/mcq.js` hai — saare subjects yahin render hote hain (best score localStorage me save)।
 
 ## 9. Mock Test (phase-2) plan
 

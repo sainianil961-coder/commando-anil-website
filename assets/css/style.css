@@ -167,6 +167,12 @@ body.has-cta{padding-bottom:76px}
 .tab-btn{border:2px solid var(--border);background:#fff;border-radius:999px;padding:.55rem 1.1rem;min-height:44px;font-weight:700;cursor:pointer;font-family:inherit;font-size:.9rem}
 .tab-btn.active{border-color:var(--secondary);color:var(--secondary);background:var(--secondary-light)}
 .admin-actions{display:flex;gap:.5rem;flex-wrap:wrap;margin-top:.7rem}
+/* MCQ practice */
+.mcq-opts{display:grid;gap:.5rem;margin:.8rem 0}
+.mcq-opt{justify-content:flex-start;text-align:left;width:100%;font-weight:600}
+.mcq-opt:disabled{opacity:.95;cursor:default}
+.mcq-feedback{margin-top:.7rem}
+.mcq-feedback p{margin:.2rem 0}
 @media(min-width:960px){.reviews-layout{grid-template-columns:.9fr 1.4fr;align-items:start}}
 @media(min-width:700px){.grid-2{grid-template-columns:1fr 1fr}.grid-3{grid-template-columns:1fr 1fr}.grid-4{grid-template-columns:1fr 1fr}.social-grid{grid-template-columns:1fr 1fr}.trust-strip{grid-template-columns:repeat(4,1fr)}}
 @media(min-width:960px){
